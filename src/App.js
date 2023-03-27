@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PlayerRegistration from './components/PlayerRegistration';
+import Leaderboard from './components/Leaderboard';
+import Scorecard from './components/Scorecard';
+import Navigation from './components/Navigation';
 
 function App() {
+  const [teams, setTeams] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<PlayerRegistration teams={teams} setTeams={setTeams} />} />
+        <Route path="/leaderboard" element={<Leaderboard teams={teams} />} />
+        <Route path="/scorecard" element={<Scorecard teams={teams} setTeams={setTeams} />} />
+      </Routes>
+    </Router>
   );
 }
 
