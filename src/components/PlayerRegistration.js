@@ -11,10 +11,12 @@ function PlayerRegistration({ setTeams }) {
   
     if (teamName && contact) {
       const team = { teamName, contact, scores: [] };
+      console.log('Registering team:', team);
       await registerTeam(team);
   
       // Fetch the updated list of teams
       const updatedTeams = await fetchTeams();
+      console.log('Updated teams:', updatedTeams);
       setTeams(updatedTeams);
   
       setTeamName('');

@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "source": "functions"
+  },
+  "rewrites": [
+    {
+      "source": "**",
+      "function": "app"
+    }
+  ]
+}
+
