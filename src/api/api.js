@@ -34,7 +34,7 @@ export async function updateTeam(teamName, updatedTeam) {
 
 export async function resetAllScores() {
   const response = await fetch(`${API_URL}/teams/reset-scores`, {
-    method: 'PUT',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },

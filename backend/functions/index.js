@@ -58,7 +58,7 @@ app.put("/api/teams/:teamName", (req, res) => {
   }
 });
 
-app.put("/api/teams/reset-scores", (req, res) => {
+app.post("/api/teams/reset-scores", (req, res) => {
   teams.forEach((team) => {
     team.scores = [];
   });
